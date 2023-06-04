@@ -1,0 +1,179 @@
+<div class="container-fluid animated fast fadeIn">
+  <div class="row my-3 justify-content-center text-center">
+    <h2 class="mb-4 titleFon">Gestion de Cliente</h2>
+  </div>
+  <div class="row justify-content-center text-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <form
+        action=""
+        [formGroup]="formData"
+        (submit)="guardar()"
+        class="row justify-content-center text-white"
+      >
+        <div class="col-5 input-group-sm mb-3 fs-7 param">
+          <label for="exampleFormControlInput1" class="form-label titleFon"
+            >Nombre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Nombre"
+            name="nombre"
+            formControlName="nombre"
+            [class.is-invalid]="verifiInput('nombre')"
+          />
+          <small class="text-danger" *ngIf="verifiInput('nombre')"
+            >Campo requerido.</small
+          >
+        </div>
+        <div class="col-5 input-group-sm mb-3 fs-7 param">
+          <label for="exampleFormControlInput1" class="form-label titleFon"
+            >Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Apellido"
+            name="apellido"
+            formControlName="apellido"
+            [class.is-invalid]="verifiInput('apellido')"
+          />
+          <small class="text-danger titleFon" *ngIf="verifiInput('apellido')"
+            >Campo requerido.</small
+          >
+        </div>
+        <div class="col-5 input-group-sm mb-3 fs-7 param">
+          <label for="exampleFormControlInput1" class="form-label titleFon"
+            >Telefono</label
+          >
+          <input
+            type="tel"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Telefono"
+            name="telefono"
+            formControlName="telefono"
+            [class.is-invalid]="verifiInput('telefono')"
+          />
+          <small class="text-danger" *ngIf="verifiInput('telefono')"
+            >Campo requerido.</small
+          >
+        </div>
+        <div class="col-5 input-group-sm mb-3 fs-7 titleFon">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Descripcion</label
+          >
+          <textarea
+            class="form-control"
+            aria-label="With textarea"
+            style="resize: none"
+            rows="2"
+            placeholder="Descripcion"
+            name="descripcion"
+            formControlName="descripcion"
+            [class.is-invalid]="verifiInput('descripcion')"
+          ></textarea>
+          <small *ngIf="verifiInput('descripcion')" class="text-danger"
+            >Campo requerido.</small
+          >
+        </div>
+        <div class="col-10 input-group-sm mb-3">
+          <button class="btn btn-outline-primary w-100" type="submit">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <hr />
+  <div class="row my-3 justify-content-center text-center">
+    <div class="col-12 col-md-8 col-lg-auto">
+      <form
+        action=""
+        #form="ngForm"
+        (submit)="buscar(form)"
+        class="row justify-content-center"
+      >
+        <div class="col-4 input-group-sm mb-3">
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm"
+            placeholder="Nombre"
+            ngModel
+            name="nombre"
+          />
+        </div>
+        <div class="col-4 input-group-sm mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Apellido"
+            placeholder="Apellido"
+            ngModel
+            name="apellido"
+          />
+        </div>
+        <div class="col-3">
+          <button type="submit" class="btn btn-sm btn-outline-success">
+            Buscar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <hr />
+  <div class="row table-responsive">
+    <table class="table table-dark table-striped animated fast fadeIn">
+      <thead class="animated fast fadeIn">
+        <tr>
+          <th class="titleFon">Nombre</th>
+          <th class="titleFon">Apellido</th>
+          <th class="titleFon">Telefono</th>
+          <th class="titleFon">Descripcion</th>
+          <th class="titleFon">Estado</th>
+          <th class="titleFon">Ingreso</th>
+          <th class="titleFon">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="animated fast fadeIn" *ngFor="let item of clients">
+        <tr class="animated fast fadeIn">
+          <td class="">{{ item.nombre }}</td>
+          <td class="">{{ item.apellido }}</td>
+          <td class="">{{ item.telefono }}</td>
+          <td class="">{{ item.descripcion }}</td>
+          <td class="">
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="flexSwitchCheckDefault"
+                (click)="cambiarEstado(item)"
+              />
+            </div>
+          </td>
+          <td class="">
+            <small>{{ item.createOn | date }}</small>
+          </td>
+
+          <td class="">
+            <a
+              class="btn btn-outline-info mx-1 btn-sm"
+              [routerLink]="['/edit', item.id]"
+              >Editar</a
+            >
+            <button
+              class="btn btn-outline-danger mx-1 btn-sm"
+              (click)="deleteCliente(item)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

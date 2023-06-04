@@ -1,0 +1,96 @@
+<div class="container-fluid animated fast fadeIn">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-12 col-lg-5 text-center">
+      <h2 class="mb-4">Historial De Clientes.</h2>
+      <form
+        action=""
+        [formGroup]="forma"
+        (submit)="buscar()"
+        class="row justify-content-center text-white"
+      >
+        <div class="col-5 input-group-sm mb-3 fs-7 param">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Nombre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Nombre"
+            name="nombre"
+            formControlName="nombre"
+            [class.is-invalid]="verifiInput('nombre')"
+          />
+          <small class="text-danger" *ngIf="verifiInput('nombre')"
+            >Campo requerido.</small
+          >
+        </div>
+        <div class="col-5 input-group-sm mb-3 fs-7 param">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Apellido"
+            name="apellido"
+            formControlName="apellido"
+            [class.is-invalid]="verifiInput('apellido')"
+          />
+          <small class="text-danger" *ngIf="verifiInput('apellido')"
+            >Campo requerido.</small
+          >
+        </div>
+        <div class="col-10 input-group-sm mb-3">
+          <button class="btn btn-outline-info w-100" type="submit">
+            Buscar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="row table-responsive">
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Telefono</th>
+              <th>Descripcion</th>
+              <th>Estado</th>
+              <th>Ingreso</th>
+              <th>Egreso</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody class="" *ngFor="let item of clientFilter">
+            <tr class="animated fast fadeIn">
+              <td>{{ item.nombre }}</td>
+              <td>{{ item.apellido }}</td>
+              <td>{{ item.telefono }}</td>
+              <td>{{ item.descripcion }}</td>
+              <td>{{ item.estado ? "Reparado" : "En Reparacion" }}</td>
+              <td>
+                <small>{{ item.createOn | date }}</small>
+              </td>
+              <td>
+                <small>{{ item.finish | date }}</small>
+              </td>
+              <td>
+                <button
+                  class="btn btn-outline-danger mx-1"
+                  (click)="deleteCliente(item)"
+                >
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

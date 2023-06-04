@@ -1,0 +1,95 @@
+<div class="container-fluid editH" *ngIf="loading">
+  <div class="row my-2">
+    <div class="col text-white">
+      <p>Cliente: {{ cliente.nombre + " " + cliente.apellido | uppercase }}</p>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-outline-danger" routerLink="/home">
+        Regresar
+      </button>
+    </div>
+  </div>
+  <div class="row my-3 h-100 justify-content-center align-items-center">
+    <div class="col-lg-5">
+      <form
+        action=""
+        [formGroup]="forma"
+        (submit)="guardar()"
+        class="row justify-content-center text-white"
+      >
+        <div class="col-5 input-group-sm mb-3 fs-7 param">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Nombre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Nombre"
+            name="nombre"
+            formControlName="nombre"
+            [class.is-invalid]="verifiInput('nombre')"
+          />
+          <small class="text-danger" *ngIf="verifiInput('nombre')"
+            >Campo requerido.</small
+          >
+        </div>
+        <div class="col-5 input-group-sm mb-3 fs-7 param">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Apellido"
+            name="apellido"
+            formControlName="apellido"
+            [class.is-invalid]="verifiInput('apellido')"
+          />
+          <small class="text-danger" *ngIf="verifiInput('apellido')"
+            >Campo requerido.</small
+          >
+        </div>
+        <div class="col-5 input-group-sm mb-3 fs-7 param">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Telefono</label
+          >
+          <input
+            type="tel"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Telefono"
+            name="telefono"
+            formControlName="telefono"
+            [class.is-invalid]="verifiInput('telefono')"
+          />
+          <small class="text-danger" *ngIf="verifiInput('telefono')"
+            >Campo requerido.</small
+          >
+        </div>
+        <div class="col-5 input-group-sm mb-3 fs-7 param">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Descripcion</label
+          >
+          <textarea
+            class="form-control"
+            aria-label="With textarea"
+            style="resize: none"
+            rows="2"
+            placeholder="Descripcion"
+            name="descripcion"
+            formControlName="descripcion"
+            [class.is-invalid]="verifiInput('descripcion')"
+          ></textarea>
+          <small *ngIf="verifiInput('descripcion')" class="text-danger"
+            >Campo requerido.</small
+          >
+        </div>
+        <div class="col-10 input-group-sm mb-3">
+          <button class="btn btn-primary w-100" type="submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

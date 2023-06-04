@@ -1,0 +1,47 @@
+<div class="container animated fast fadeIn">
+  <div class="row justify-content-center my-5">
+    <div class="col-md-6 col-lg-5">
+      <div class="login-wrap p-md-5">
+        <div class="icon d-flex align-items-center justify-content-center">
+          <span class="fa fa-user-o"></span>
+        </div>
+        <h3 class="text-center mb-4">Bienvenido.</h3>
+        <form
+          action="#"
+          class="login-form animated fast fadeIn"
+          [formGroup]="form"
+          (submit)="login()"
+        >
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control rounded-left text-black"
+              placeholder="Nombre"
+              name="nombre"
+              formControlName="nombre"
+              [class.is-invalid]="verifiInput('nombre')"
+            />
+          </div>
+          <div class="form-group d-flex">
+            <input
+              type="password"
+              class="form-control rounded-left"
+              placeholder="Password"
+              name="password"
+              formControlName="password"
+              [class.is-invalid]="verifiInput('password')"
+            />
+          </div>
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-primary rounded submit p-3 px-5"
+            >
+              Ingresar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
