@@ -14,8 +14,9 @@
 - Este proyecto tiene como objetivo proporcionar una solución eficiente para la gestión de reparaciones de aparatos electrónicos, reemplazando el antiguo sistema basado en papel utilizado por nuestro cliente. Esta aplicación utiliza tecnologías como Spring Boot (con Spring JPA, Spring Security y JWT) en el backend, y Angular (con Bootstrap) en el frontend, para brindar una experiencia de usuario fluida y segura.
 
 <br>
-Demo 
+Demo (user:admin, pass:1234) 
 <a href="https://barragan.netlify.app/home">Link</a>
+
 <br>
 
 ## Características principales
