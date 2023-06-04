@@ -57,14 +57,12 @@
 
 ## Contribución
 
-- Estamoy abierto a recibir sugerencias, correcciones de errores y nuevas funcionalidades.
+- Estoy abierto a recibir sugerencias, correcciones de errores y nuevas funcionalidades.
 
 ## Contacto
 
 - Si tienes alguna pregunta o inquietud relacionada con este proyecto, no dudes en ponerte en contacto con ema9948@gmail.com o https://cristianalbornoz.ml/
 
-¡Gracias por utilizar nuestra aplicación de gestión de reparaciones de aparatos electrónicos! Esperamos que te sea de gran utilidad.
-
 ## Features
 
-- Se enviara una notificacion de forma automatica a WhatsApp cuando el electrodomesticos sea reparado.
+- Se enviara una notificacion de forma automatica a WhatsApp cuando el electrodomestico sea reparado.
